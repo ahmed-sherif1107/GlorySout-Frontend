@@ -1,0 +1,148 @@
+/* feed.css */
+:root {
+    --insta-bg: #000;
+    --insta-card-bg: #181818;
+    --insta-text: #fff;
+    --insta-secondary: #aaa;
+    --insta-border: #222;
+    --insta-accent: #10b981;
+    --insta-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Layout Structure */
+.container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: #111;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: var(--insta-bg);
+}
+
+/* Feed Centering */
+.feed-section {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Instagram Post Styling */
+.insta-post-card {
+    background: var(--insta-card-bg);
+    border-radius: 16px;
+    box-shadow: var(--insta-shadow);
+    width: 100%;
+    overflow: hidden;
+    color: var(--insta-text);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid var(--insta-border);
+    margin-bottom: 24px;
+}
+
+.insta-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+}
+
+.insta-post-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--insta-accent);
+    margin-right: 12px;
+}
+
+.insta-post-media {
+    width: 100%;
+    aspect-ratio: 1;
+    background: #111;
+    overflow: hidden;
+}
+
+.insta-post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Engagement Bar */
+.insta-post-engagement {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.insta-action {
+    color: var(--insta-secondary);
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* Comments Section */
+.insta-comments-preview {
+    padding: 0 20px 12px;
+}
+
+.insta-add-comment {
+    border-top: 1px solid var(--insta-border);
+    padding: 12px 20px;
+}
+
+/* Loading Spinner */
+.feed-loader {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.feed-loader::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    border: 3px solid var(--insta-accent);
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .main-content {
+        padding: 20px 10px;
+    }
+
+    .insta-post-card {
+        border-radius: 0;
+    }
+}
